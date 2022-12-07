@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { AiFillGithub } from "react-icons/ai";
 import { ProfileCard } from "../components/ProfileCard";
 
 export const Home = () => {
@@ -18,20 +19,27 @@ export const Home = () => {
     }, []);
 
     return (
-        <div className="text-black flex flex-wrap gap-3 justify-center mt-5">
-            {profiles.length == 0 && <h1>Carregando...</h1>}
+        <div className="text-black mt-5 px-5">
+            <h2 className="flex items-center justify-center text-xl font-semibold text-slate-600">
+                Primeiros Perfis do Github
+                <AiFillGithub className="ml-1 text-2xl" />
+            </h2>
 
-            {profiles.length > 0 &&
-                profiles.map((profile, index) => (
-                    <>
-                        <ProfileCard
-                            avatar={profile.avatar_url}
-                            user={profile.login}
-                            id={profile.id}
-                            key={index}
-                        />
-                    </>
-                ))}
+            <div className="flex flex-wrap gap-3 justify-center mt-5">
+                {profiles.length == 0 && <h1>Carregando...</h1>}
+
+                {profiles.length > 0 &&
+                    profiles.map((profile, index) => (
+                        <>
+                            <ProfileCard
+                                avatar={profile.avatar_url}
+                                user={profile.login}
+                                id={profile.id}
+                                key={index}
+                            />
+                        </>
+                    ))}
+            </div>
         </div>
     );
 };
