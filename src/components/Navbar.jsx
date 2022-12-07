@@ -30,9 +30,9 @@ export const Navbar = () => {
                 <input
                     type="text"
                     placeholder="Pesquise aqui..."
-                    className="px-2 py-1 rounded-full text-black outline-none focus:outline-slate-400 w-60"
+                    className="px-3 py-1 rounded-full text-black outline-none focus:outline-slate-400 w-48 sm:w-60"
                     onChange={(e) =>
-                        setSearchProfile(e.target.value.split(" ").join(""))
+                        setSearchProfile(e.target.value.replace(" ", ""))
                     }
                     value={searchProfile}
                 />
